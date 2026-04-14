@@ -1,91 +1,63 @@
-DevOps Practice Project – Dist Directory
+# DevOps Application Deployment
 
-This repository contains the production-ready build files (dist folder) for DevOps practice and deployment exercises.
+## 📌 Project Overview
+This project demonstrates deploying a React application using Docker, AWS ECR, AWS EKS, and CI/CD pipeline with CodeBuild and CodePipeline.
 
-It is intentionally structured to help learners focus on CI/CD pipelines, hosting, containerization, and infrastructure setup rather than application development.
+---
 
-📁 What This Repository Contains
+## 🚀 Steps Implemented
 
-dist/ – Compiled and production-ready static files
+### 1. Application Setup
+- Cloned GitHub repository
+- Application runs on port 3000
 
-HTML
+---
 
-CSS
+### 2. Docker
+- Created Dockerfile
+- Built Docker image
+- Verified container output
 
-JavaScript
+---
 
-Assets (images, fonts, etc.)
+### 3. AWS ECR
+- Created repository
+- Pushed Docker image to ECR
 
-These files are ready to deploy to:
+---
 
-Web servers (Nginx / Apache)
+### 4. Kubernetes (EKS)
+- Created EKS cluster
+- Created deployment.yaml and service.yaml
+- Deployed application using kubectl
 
-Cloud platforms (AWS S3, Azure Blob, GCP Storage)
+---
 
-Containerized environments (Docker + Nginx)
+### 5. CodeBuild
+- Created build project
+- Connected GitHub repository
+- Defined build commands in buildspec.yml
 
-Kubernetes clusters
+---
 
-CI/CD pipeline demonstrations
+### 6. CodePipeline
+- Source: GitHub
+- Build: CodeBuild
+- Deploy: EKS via kubectl (automated)
 
-🎯 Purpose of This Repository
+---
 
-This repository is designed for:
+### 7. Monitoring
+- Used CloudWatch logs to track build and deployment
 
-DevOps beginners
+---
 
-CI/CD practice
+## 🔄 CI/CD Workflow
 
-Deployment pipeline testing
+Code Push → CodePipeline → CodeBuild → Docker Build → ECR → kubectl deploy → EKS
 
-Docker & Kubernetes deployment exercises
+---
 
-Web server configuration practice
+## 🌐 Application Access
 
-Reverse proxy and load balancer setup
-
-The goal is to simulate real-world deployment scenarios using already built application files.
-
-❓ Why is there NO package.json?
-
-You may notice that this repository does not include:
-
-package.json
-
-node_modules
-
-Source code (src/)
-
-Build tools configuration
-
-✅ Reason:
-
-This repository only contains the final production build output (dist), not the development source code.
-
-In a typical project:
-
-Developers write source code.
-
-The project is built using tools like:
-
-Node.js
-
-Webpack
-
-Vite
-
-React (or other frameworks)
-
-A dist/ folder is generated.
-
-Only the production build is deployed to servers.
-
-This repository represents step 4 only.
-
-Since this is already the compiled output:
-
-No dependencies are required
-
-No build process is required
-
-No package.json is needed
+LoadBalancer URL: http://a7f947bf6ca3b474ca8fe183a97fe196-1196077578.ap-south-1.elb.amazonaws.com/
