@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging into ECR
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 373313242633.dkr.ecr.ap-south-1.amazonaws.com
+  build:
+    commands:
+      - echo Building Docker image
+      - docker build -t brain-app .
+      - docker tag brain-app:latest 373313242633.dkr.ecr.ap-south-1.amazonaws.com/brain-app:latest
+  post_build:
+    commands:
+      - echo Pushing Docker image
+      - docker push 373313242633.dkr.ecr.ap-south-1.amazonaws.com/brain-app:latest
