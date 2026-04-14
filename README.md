@@ -60,6 +60,7 @@ Code Push → CodePipeline → CodeBuild → Docker Build → ECR → kubectl de
 
 ## 🌐 Application Access
 
-LoadBalancer URL: http://a7f947bf6ca3b474ca8fe183a97fe196-1196077578.ap-south-1.elb.amazonaws.com/
+Loadbalancer ARN: arn:aws:elasticloadbalancing:ap-south-1:373313242633:loadbalancer/a5df72304449a4f168c7a75a35c03a6f
+Ex Ip: http://a5df72304449a4f168c7a75a35c03a6f-352687221.ap-south-1.elb.amazonaws.com/
 
 “I implemented a CI/CD pipeline using CodePipeline and CodeBuild, which automatically builds Docker images, pushes them to ECR, and deploys them to EKS using kubectl.”
